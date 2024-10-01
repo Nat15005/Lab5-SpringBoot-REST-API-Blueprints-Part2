@@ -56,8 +56,6 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
         }        
     }
 
-
-
     @Override
     public Blueprint getBlueprint(String author, String blueprintName) throws BlueprintNotFoundException {
         Tuple<String, String> blueprintKey = new Tuple<>(author, blueprintName);
