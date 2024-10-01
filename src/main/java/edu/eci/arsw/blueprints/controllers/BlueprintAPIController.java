@@ -11,13 +11,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import edu.eci.arsw.blueprints.model.Blueprint;
+import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
 import edu.eci.arsw.blueprints.services.BlueprintsServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  *
@@ -39,5 +38,20 @@ public class BlueprintAPIController {
             return new ResponseEntity<>("Error al obtener los planos. ", HttpStatus.NOT_FOUND);
         }
     }
+
+    @GetMapping("/{author}")
+    public ResponseEntity<Set<Blueprint>> getBlueprintsByAuthor(@PathVariable String author) {
+        try{
+            Set<Blueprint> blueprints = blueprintsServices.getBlueprintsByAuthor(author);
+            return new ResponseEntity<>(blueprints, HttpStatus.ACCEPTED);
+        } catch (BlueprintNotFoundException e) {
+            Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, e);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
+            Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, e);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }
 
