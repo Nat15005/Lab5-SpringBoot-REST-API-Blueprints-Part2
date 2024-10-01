@@ -62,24 +62,17 @@ Del anterior diagrama de componentes (de alto nivel), se desprendió el siguient
 
 ### Parte II
 
-1.  Agregue el manejo de peticiones POST (creación de nuevos planos), de manera que un cliente http pueda registrar una nueva orden haciendo una petición POST al recurso ‘planos’, y enviando como contenido de la petición todo el detalle de dicho recurso a través de un documento jSON. Para esto, tenga en cuenta el siguiente ejemplo, que considera -por consistencia con el protocolo HTTP- el manejo de códigos de estados HTTP (en caso de éxito o error):
+1.  Agregue el manejo de peticiones POST (creación de nuevos planos), de manera que un cliente http pueda registrar una nueva orden haciendo una petición POST al recurso ‘planos’, y enviando como contenido de la petición todo el detalle de dicho recurso a través de un documento jSON.
+   
+	![image](https://github.com/user-attachments/assets/9ab0555c-70c2-4ccb-b2f6-bb515b212153)
 
-	```	java
-	@RequestMapping(method = RequestMethod.POST)	
-	public ResponseEntity<?> manejadorPostRecursoXX(@RequestBody TipoXX o){
-        try {
-            //registrar dato
-            return new ResponseEntity<>(HttpStatus.CREATED);
-        } catch (XXException ex) {
-            Logger.getLogger(XXController.class.getName()).log(Level.SEVERE, null, ex);
-            return new ResponseEntity<>("Error bla bla bla",HttpStatus.FORBIDDEN);            
-        }        
- 	
-	}
-	```	
+	En Postman vamos a realizar la creación.
+	![image](https://github.com/user-attachments/assets/473b1b09-21a8-40ec-8618-379df9acb924)
 
+	Comprobamos con un get la creación.
+	![image](https://github.com/user-attachments/assets/74dc1f77-0ada-4aa3-8443-e9d3e12eceed)
 
-2.  Para probar que el recurso ‘planos’ acepta e interpreta
+3.  Para probar que el recurso ‘planos’ acepta e interpreta
     correctamente las peticiones POST, use el comando curl de Unix. Este
     comando tiene como parámetro el tipo de contenido manejado (en este
     caso jSON), y el ‘cuerpo del mensaje’ que irá con la petición, lo
@@ -96,9 +89,9 @@ Del anterior diagrama de componentes (de alto nivel), se desprendió el siguient
 	Nota: puede basarse en el formato jSON mostrado en el navegador al consultar una orden con el método GET.
 
 
-3. Teniendo en cuenta el autor y numbre del plano registrado, verifique que el mismo se pueda obtener mediante una petición GET al recurso '/blueprints/{author}/{bpname}' correspondiente.
+4. Teniendo en cuenta el autor y numbre del plano registrado, verifique que el mismo se pueda obtener mediante una petición GET al recurso '/blueprints/{author}/{bpname}' correspondiente.
 
-4. Agregue soporte al verbo PUT para los recursos de la forma '/blueprints/{author}/{bpname}', de manera que sea posible actualizar un plano determinado.
+5. Agregue soporte al verbo PUT para los recursos de la forma '/blueprints/{author}/{bpname}', de manera que sea posible actualizar un plano determinado.
 
 
 ### Parte III
