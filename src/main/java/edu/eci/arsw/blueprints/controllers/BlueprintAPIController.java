@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author hcadavid
  */
+@RestController
+@RequestMapping(value = "/blueprints")
 public class BlueprintAPIController {
     
     

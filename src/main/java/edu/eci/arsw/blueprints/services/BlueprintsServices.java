@@ -33,7 +33,7 @@ public class BlueprintsServices {
         bpp.saveBlueprint(bp);
     }
 
-    public Set<Blueprint> getAllBlueprints(){
+    public Set<Blueprint> getAllBlueprints() throws BlueprintNotFoundException{
         return blueprintFilter.filterBlueprints(bpp.getAllBluePrints());
     }
     
