@@ -81,14 +81,10 @@ Del anterior diagrama de componentes (de alto nivel), se desprendió el siguient
     cual en este caso debe ser un documento jSON equivalente a la clase
     Cliente (donde en lugar de {ObjetoJSON}, se usará un objeto jSON correspondiente a una nueva orden:
 
-	```	
-	$ curl -i -X POST -HContent-Type:application/json -HAccept:application/json http://URL_del_recurso_ordenes -d '{ObjetoJSON}'
-	```	
-
-	Con lo anterior, registre un nuevo plano (para 'diseñar' un objeto jSON, puede usar [esta herramienta](http://www.jsoneditoronline.org/)):
 	
+ 	![image](https://github.com/user-attachments/assets/67be0337-7a9d-498f-8630-d29a9cc52639)
 
-	Nota: puede basarse en el formato jSON mostrado en el navegador al consultar una orden con el método GET.
+	![image](https://github.com/user-attachments/assets/f719bb87-246b-4757-8a87-200133cd7cc0)
 
 
 4. Teniendo en cuenta el autor y numbre del plano registrado, verifique que el mismo se pueda obtener mediante una petición GET al recurso '/blueprints/{author}/{bpname}' correspondiente.
