@@ -53,5 +53,19 @@ public class BlueprintAPIController {
         }
     }
 
+    @GetMapping("/{author}/{bpname}")
+    public ResponseEntity<Blueprint> getBlueprintsByAuthorAndBpname(@PathVariable String author, @PathVariable String bpname) {
+        try{
+            Blueprint blueprint = blueprintsServices.getBlueprint(author, bpname);
+            return new ResponseEntity<>(blueprint, HttpStatus.ACCEPTED);
+        } catch (BlueprintNotFoundException e) {
+            Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, e);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
+            Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, e);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }
 
