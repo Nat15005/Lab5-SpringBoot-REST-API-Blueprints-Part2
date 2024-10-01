@@ -39,7 +39,5 @@ public class BlueprintAPIController {
             return new ResponseEntity<>("Error al obtener los planos. ", HttpStatus.NOT_FOUND);
         }
     }
-    
-    
 }
 
