@@ -67,9 +67,11 @@ Del anterior diagrama de componentes (de alto nivel), se desprendió el siguient
 	![image](https://github.com/user-attachments/assets/9ab0555c-70c2-4ccb-b2f6-bb515b212153)
 
 	En Postman vamos a realizar la creación.
+
 	![image](https://github.com/user-attachments/assets/473b1b09-21a8-40ec-8618-379df9acb924)
 
 	Comprobamos con un get la creación.
+
 	![image](https://github.com/user-attachments/assets/74dc1f77-0ada-4aa3-8443-e9d3e12eceed)
 
 3.  Para probar que el recurso ‘planos’ acepta e interpreta
