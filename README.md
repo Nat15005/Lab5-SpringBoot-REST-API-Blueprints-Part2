@@ -50,9 +50,13 @@ Del anterior diagrama de componentes (de alto nivel), se desprendió el siguient
 5. Modifique el controlador para que ahora, acepte peticiones GET al recurso /blueprints/{author}, el cual retorne usando una representación jSON todos los planos realizados por el autor cuyo nombre sea {author}. Si no existe dicho autor, se debe responder con el código de error HTTP 404. Para esto, revise en [la documentación de Spring](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html), sección 22.3.2, el uso de @PathVariable. De nuevo, verifique que al hacer una petición GET -por ejemplo- a recurso http://localhost:8080/blueprints/juan, se obtenga en formato jSON el conjunto de planos asociados al autor 'juan' (ajuste esto a los nombres de autor usados en el punto 2).
 
    ![image](https://github.com/user-attachments/assets/be991257-db12-4867-8f13-75e40ca7f0f6)
+   ![image](https://github.com/user-attachments/assets/d0641a0f-b64a-4747-a6e1-03023e54ac23)
 
 
-6. Modifique el controlador para que ahora, acepte peticiones GET al recurso /blueprints/{author}/{bpname}, el cual retorne usando una representación jSON sólo UN plano, en este caso el realizado por {author} y cuyo nombre sea {bpname}. De nuevo, si no existe dicho autor, se debe responder con el código de error HTTP 404. 
+7. Modifique el controlador para que ahora, acepte peticiones GET al recurso /blueprints/{author}/{bpname}, el cual retorne usando una representación jSON sólo UN plano, en este caso el realizado por {author} y cuyo nombre sea {bpname}. De nuevo, si no existe dicho autor, se debe responder con el código de error HTTP 404. 
+
+![image](https://github.com/user-attachments/assets/e99aa960-ea36-4047-85c8-ecb4e30c05e6)
+![image](https://github.com/user-attachments/assets/726d5f19-a951-4840-85d8-f35a92bbb05b)
 
 
 
