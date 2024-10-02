@@ -1,0 +1,19 @@
+Qué condiciones de carrera se podrían presentar?
+
+- Dos o más hilos pueden intentar guardar el mismo plano simultáneamente, lo que podría resultar en excepciones no controladas o duplicados.
+- Un hilo puede intentar acceder a un plano que otro hilo está actualizando, lo que puede resultar en un error o en la devolución de datos inconsistentes.
+- Es posible que dos hilos intenten actualizar el mismo valor al mismo tiempo, lo que podría ocasionar que una de las actualizaciones se pierda.
+- Si un hilo lee un plano y modifica sus datos, mientras otro hilo también modifica el mismo plano, se corre el riesgo de que la primera modificación se sobrescriba sin ser registrada, resultando en la pérdida de los cambios realizados por el primer hilo.
+
+Cuales son las respectivas regiones críticas?
+
+- Guardado de planos: En el método saveBlueprint, donde se verifica la existencia de un plano y se agrega si no existe.
+- Acceso a planos: En los métodos getBlueprint, getBlueprintsByAuthor, y getAllBluePrints, donde se lee el estado de los planos.
+- Actualización de planos: En el método updateBlueprint, donde se actualiza un plano existente.
+
+Análisis y la solución aplicada
+
+Para suprimir las condiciones de carrera sin degradar significativamente el rendimiento de la API, implementamos las siguientes estrategias:
+
+- Uso de ConcurrentHashMap: Se cambió la implementación de HashMap a ConcurrentHashMap. Esto permite que múltiples hilos accedan a la colección de planos de manera segura, mejorando el rendimiento al permitir la concurrencia en las operaciones de lectura.
+- Operaciones Atómicas: Se utilizó el método putIfAbsent en ConcurrentHashMap para el método saveBlueprint, que agrega el plano solo si no existe, evitando condiciones de carrera.
