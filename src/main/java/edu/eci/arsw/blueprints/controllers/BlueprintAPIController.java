@@ -85,15 +85,14 @@ public class BlueprintAPIController {
             @PathVariable String bpname,
             @RequestBody Blueprint updatedBlueprint) {
         try {
-            // Llama al servicio para actualizar el plano con los nuevos datos
             blueprintsServices.updateBlueprint(author, bpname, updatedBlueprint);
-            return new ResponseEntity<>(HttpStatus.OK); // Respuesta 200 OK
+            return new ResponseEntity<>(HttpStatus.OK);
         } catch (BlueprintNotFoundException e) {
             Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, e);
-            return new ResponseEntity<>("Plano no encontrado", HttpStatus.NOT_FOUND); // Respuesta 404 Not Found
+            return new ResponseEntity<>("Plano no encontrado", HttpStatus.NOT_FOUND);
         } catch (Exception e) {
             Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, e);
-            return new ResponseEntity<>("Error al actualizar el plano", HttpStatus.INTERNAL_SERVER_ERROR); // Respuesta 500 Internal Server Error
+            return new ResponseEntity<>("Error al actualizar el plano", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
