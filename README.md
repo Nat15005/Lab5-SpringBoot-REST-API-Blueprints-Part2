@@ -94,6 +94,20 @@ Del anterior diagrama de componentes (de alto nivel), se desprendió el siguient
 
 4. Agregue soporte al verbo PUT para los recursos de la forma '/blueprints/{author}/{bpname}', de manera que sea posible actualizar un plano determinado.
 
+- EL put implementado, actualizrá los puntos de un plano dado
+
+   ![image](https://github.com/user-attachments/assets/d55bcb59-6227-4d78-80f9-07485e800775)
+
+- Probamos el put:
+
+  ![image](https://github.com/user-attachments/assets/1ae87c3e-f330-49f7-a566-fe9d4b00b2d1)
+
+  ![image](https://github.com/user-attachments/assets/b0b869ab-30b6-43e3-9484-37063120269f)
+
+- Después de haber hecho el put verificamos los cambios:
+
+  ![image](https://github.com/user-attachments/assets/3443f66e-62ca-477a-9300-4ac8c1c45e84)
+
 
 ### Parte III
 
