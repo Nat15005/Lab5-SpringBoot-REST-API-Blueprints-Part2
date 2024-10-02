@@ -2,9 +2,9 @@
 
 ### Arquitecturas de Software
 
-
-
-#### API REST para la gestión de planos.
+### Desarrollado por Laura Natalia Rojas y Ana Maria Duran
+-----
+### API REST para la gestión de planos.
 
 En este ejercicio se va a construír el componente BlueprintsRESTAPI, el cual permita gestionar los planos arquitectónicos de una prestigiosa compañia de diseño. La idea de este API es ofrecer un medio estandarizado e 'independiente de la plataforma' para que las herramientas que se desarrollen a futuro para la compañía puedan gestionar los planos de forma centralizada.
 El siguiente, es el diagrama de componentes que corresponde a las decisiones arquitectónicas planteadas al inicio del proyecto:
@@ -48,15 +48,15 @@ Del anterior diagrama de componentes (de alto nivel), se desprendió el siguient
 	![image](https://github.com/user-attachments/assets/4eac0ef1-9ace-4438-883d-6e3c25a0c14a)
 
 5. Modifique el controlador para que ahora, acepte peticiones GET al recurso /blueprints/{author}, el cual retorne usando una representación jSON todos los planos realizados por el autor cuyo nombre sea {author}. Si no existe dicho autor, se debe responder con el código de error HTTP 404. Para esto, revise en [la documentación de Spring](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html), sección 22.3.2, el uso de @PathVariable. De nuevo, verifique que al hacer una petición GET -por ejemplo- a recurso http://localhost:8080/blueprints/juan, se obtenga en formato jSON el conjunto de planos asociados al autor 'juan' (ajuste esto a los nombres de autor usados en el punto 2).
-
-   ![image](https://github.com/user-attachments/assets/be991257-db12-4867-8f13-75e40ca7f0f6)
-   ![image](https://github.com/user-attachments/assets/d0641a0f-b64a-4747-a6e1-03023e54ac23)
+	
+	![image](https://github.com/user-attachments/assets/be991257-db12-4867-8f13-75e40ca7f0f6)
+	![image](https://github.com/user-attachments/assets/d0641a0f-b64a-4747-a6e1-03023e54ac23)
 
 
 6. Modifique el controlador para que ahora, acepte peticiones GET al recurso /blueprints/{author}/{bpname}, el cual retorne usando una representación jSON sólo UN plano, en este caso el realizado por {author} y cuyo nombre sea {bpname}. De nuevo, si no existe dicho autor, se debe responder con el código de error HTTP 404. 
-
-![image](https://github.com/user-attachments/assets/e99aa960-ea36-4047-85c8-ecb4e30c05e6)
-![image](https://github.com/user-attachments/assets/726d5f19-a951-4840-85d8-f35a92bbb05b)
+	
+	![image](https://github.com/user-attachments/assets/e99aa960-ea36-4047-85c8-ecb4e30c05e6)
+	![image](https://github.com/user-attachments/assets/726d5f19-a951-4840-85d8-f35a92bbb05b)
 
 
 
@@ -118,7 +118,14 @@ El componente BlueprintsRESTAPI funcionará en un entorno concurrente. Es decir,
 
 Ajuste el código para suprimir las condiciones de carrera. Tengan en cuenta que simplemente sincronizar el acceso a las operaciones de persistencia/consulta DEGRADARÁ SIGNIFICATIVAMENTE el desempeño de API, por lo cual se deben buscar estrategias alternativas.
 
-Escriba su análisis y la solución aplicada en el archivo ANALISIS_CONCURRENCIA.txt
+* Usamos Concurrent Hashmap
+	![image](https://github.com/user-attachments/assets/55f718b7-ed46-4f4d-bc13-9d4ac29d4163)
+
+* Idenficamos una región crítica y actualizamos el código.
+
+	![image](https://github.com/user-attachments/assets/f42ab0bd-9fef-4915-928a-81d65e86ccde)
+
+El análisis y la solución aplicada se encuentra en el archivo ANALISIS_CONCURRENCIA.txt
 
 #### Criterios de evaluación
 
