@@ -44,7 +44,7 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
         blueprints.put(new Tuple<>(bp3.getAuthor(),bp3.getName()), bp3);
         blueprints.put(new Tuple<>(bp4.getAuthor(),bp4.getName()), bp4);
 
-    }    
+    }
     
     @Override
     public void saveBlueprint(Blueprint bp) throws BlueprintPersistenceException {
@@ -77,6 +77,17 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
 
         return authorBlueprints;
     }
+
+    @Override
+    public void updateBlueprint(String author, String bpname, Blueprint updatedBlueprint) throws BlueprintNotFoundException {
+        Blueprint existingBlueprint = getBlueprint(author, bpname);
+
+        existingBlueprint.setAuthor(updatedBlueprint.getAuthor());
+        existingBlueprint.setName(updatedBlueprint.getName());
+
+        existingBlueprint.setPoints(updatedBlueprint.getPoints());
+    }
+
 
     @Override
     public Set<Blueprint> getAllBluePrints() {

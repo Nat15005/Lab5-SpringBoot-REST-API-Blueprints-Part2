@@ -57,5 +57,9 @@ public class BlueprintsServices {
     public Set<Blueprint> getBlueprintsByAuthor(String author) throws BlueprintNotFoundException{
         return blueprintFilter.filterBlueprints(bpp.getBlueprintsByAuthor(author));
     }
+
+    public void updateBlueprint(String author, String bpname, Blueprint updatedBlueprint) throws BlueprintNotFoundException {
+        bpp.updateBlueprint(author, bpname, updatedBlueprint);
+    }
     
 }
