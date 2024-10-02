@@ -34,7 +34,7 @@ public class BlueprintAPIController {
         try{
             Set<Blueprint> blueprints = blueprintsServices.getAllBlueprints();
             return new ResponseEntity<>(blueprints, HttpStatus.ACCEPTED);
-        } catch (Exception e){
+        } catch (BlueprintNotFoundException e){
             Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, e);
             return new ResponseEntity<>("Error al obtener los planos. ", HttpStatus.NOT_FOUND);
         }
@@ -48,9 +48,6 @@ public class BlueprintAPIController {
         } catch (BlueprintNotFoundException e) {
             Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, e);
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } catch (Exception e) {
-            Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, e);
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -62,9 +59,6 @@ public class BlueprintAPIController {
         } catch (BlueprintNotFoundException e) {
             Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, e);
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        } catch (Exception e) {
-            Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, e);
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -90,9 +84,6 @@ public class BlueprintAPIController {
         } catch (BlueprintNotFoundException e) {
             Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, e);
             return new ResponseEntity<>("Plano no encontrado", HttpStatus.NOT_FOUND);
-        } catch (Exception e) {
-            Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, e);
-            return new ResponseEntity<>("Error al actualizar el plano", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
