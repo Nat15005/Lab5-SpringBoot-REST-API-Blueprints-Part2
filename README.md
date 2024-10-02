@@ -26,7 +26,7 @@ Del anterior diagrama de componentes (de alto nivel), se desprendió el siguient
 
 	![image](https://github.com/user-attachments/assets/3d547480-f770-4613-866d-b3f86f4f454c)
 
-3. Modifique el bean de persistecia 'InMemoryBlueprintPersistence' para que por defecto se inicialice con al menos otros tres planos, y con dos asociados a un mismo autor.
+2. Modifique el bean de persistecia 'InMemoryBlueprintPersistence' para que por defecto se inicialice con al menos otros tres planos, y con dos asociados a un mismo autor.
 
 	![image](https://github.com/user-attachments/assets/0f5f1ddf-9ac4-4ed5-98c5-fae26c4be042)
 
@@ -53,7 +53,7 @@ Del anterior diagrama de componentes (de alto nivel), se desprendió el siguient
    ![image](https://github.com/user-attachments/assets/d0641a0f-b64a-4747-a6e1-03023e54ac23)
 
 
-7. Modifique el controlador para que ahora, acepte peticiones GET al recurso /blueprints/{author}/{bpname}, el cual retorne usando una representación jSON sólo UN plano, en este caso el realizado por {author} y cuyo nombre sea {bpname}. De nuevo, si no existe dicho autor, se debe responder con el código de error HTTP 404. 
+6. Modifique el controlador para que ahora, acepte peticiones GET al recurso /blueprints/{author}/{bpname}, el cual retorne usando una representación jSON sólo UN plano, en este caso el realizado por {author} y cuyo nombre sea {bpname}. De nuevo, si no existe dicho autor, se debe responder con el código de error HTTP 404. 
 
 ![image](https://github.com/user-attachments/assets/e99aa960-ea36-4047-85c8-ecb4e30c05e6)
 ![image](https://github.com/user-attachments/assets/726d5f19-a951-4840-85d8-f35a92bbb05b)
@@ -74,7 +74,7 @@ Del anterior diagrama de componentes (de alto nivel), se desprendió el siguient
 
 	![image](https://github.com/user-attachments/assets/74dc1f77-0ada-4aa3-8443-e9d3e12eceed)
 
-3.  Para probar que el recurso ‘planos’ acepta e interpreta
+2.  Para probar que el recurso ‘planos’ acepta e interpreta
     correctamente las peticiones POST, use el comando curl de Unix. Este
     comando tiene como parámetro el tipo de contenido manejado (en este
     caso jSON), y el ‘cuerpo del mensaje’ que irá con la petición, lo
@@ -87,9 +87,12 @@ Del anterior diagrama de componentes (de alto nivel), se desprendió el siguient
 	![image](https://github.com/user-attachments/assets/f719bb87-246b-4757-8a87-200133cd7cc0)
 
 
-4. Teniendo en cuenta el autor y numbre del plano registrado, verifique que el mismo se pueda obtener mediante una petición GET al recurso '/blueprints/{author}/{bpname}' correspondiente.
+2. Teniendo en cuenta el autor y numbre del plano registrado, verifique que el mismo se pueda obtener mediante una petición GET al recurso '/blueprints/{author}/{bpname}' correspondiente.
 
-5. Agregue soporte al verbo PUT para los recursos de la forma '/blueprints/{author}/{bpname}', de manera que sea posible actualizar un plano determinado.
+   ![image](https://github.com/user-attachments/assets/7bba80ab-58eb-4de2-86bc-87646676bf09)
+
+
+4. Agregue soporte al verbo PUT para los recursos de la forma '/blueprints/{author}/{bpname}', de manera que sea posible actualizar un plano determinado.
 
 
 ### Parte III
